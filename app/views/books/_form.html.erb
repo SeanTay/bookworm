@@ -1,0 +1,14 @@
+<%= form_for (@book) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :author %>
+  <%= f.text_field :author %
+
+  <%= f.label :photo_url %>
+  <%= f.text_field :photo_url %>
+
+  <%= f.label :has_read, "Short Description" %>
+  <%= f.radio :has_read %>
+
+  <%= f.submit "Submit" %>

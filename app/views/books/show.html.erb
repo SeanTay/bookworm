@@ -1,0 +1,11 @@
+<h2><%= @book.title %><a href ="/books/<%= @book.id%>/edit">(edit)</a></h2>
+
+<img class = "book-photo" src="<%= @book.photo_url%>">
+
+<div class="book-content">
+    <p><span>Title:</span> <%= @book.title %></p>
+    <p><span>Author:</span> <%= @book.author %>
+    <p><span>Read:</span> <%= @book.has_read %></p>
+</div>
+
+<h3>Comments</h3>

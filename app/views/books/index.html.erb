@@ -1,0 +1,11 @@
+<h2>books <a href="/books/new">(+)</a></h2>
+
+<ul>
+  <% @books.each do |book| %>
+    <li>
+      <a href="/books/<%= book.id %>">
+        <%= book.title %>
+      </a>
+    </li>
+  <% end %>
+</ul>

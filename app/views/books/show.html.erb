@@ -9,3 +9,14 @@
 </div>
 
 <h3>Comments</h3>
+
+<% @comments.each do |comment| %>
+  <p> Subject: <%= comment.subject %> </p>
+  <p> Added: <%= comment.created_at.strftime("%b %d %y") %> </p>
+  <p> <%= comment.body %> </p>
+  <%= link_to "Edit Comment", edit_book_comment_path(@book, comment) %>
+
+<% end %>
+
+<h3>Leave a comment:</h3>
+<%= render partial: "comments/form" %>

@@ -18,7 +18,7 @@ comment_data.each_pair do |book_name, comments|
 
   comments.each do |comment|
     Comment.create!({
-      author:      comment[:author],
+      subject:      comment[:subject],
       body:        comment[:body],
       book:        current_book
     })

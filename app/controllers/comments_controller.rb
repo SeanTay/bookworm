@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
   def index
-    @comment = Comment.all
+    @comments = Comment.all
   end
 
   def new
@@ -9,31 +9,37 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.create!(comment.params)
-    redirect_to book_path
+    @book = Book.find(params[:book_id])
+    @comment = @book.comments.create!(comment_params)
+    redirect_to book_path(@book)
   end
 
   def show
+    @book = Book.find(params[:book_id])
     @comment = Comment.find(params[:id])
   end
 
   def edit
+    @book = Book.find(params[:book_id])
     @comment = Comment.find(params[:id])
   end
 
   def update
+    @book = Book.find(params[:book_id])
     @comment = Comment.find(params[:id])
-    @comment.update(comment.params)
+    @comment.update(comment_params)
     redirect_to book_path
   end
 
   def destroy
+    @book = Book.find(params[:book_id])
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to book_path
+    redirect_to book_path(@book)
   end
 
   private
-  comments.require(:comment).permit(:subject, :body)
-
+  def comment_params
+    params.require(:comment).permit(:subject, :body)
+  end
 end

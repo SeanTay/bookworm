@@ -3,11 +3,11 @@
 <!-- if request is for read books -->
 <% if params[:request_type] == 'reads' %>
 
-    <% @reads.each do |book| %>
+    <% @reads.each do |reading| %>
 
-      <span><%= link_to "#{book.title}", book_path(book) %></span>
+      <span><%= link_to "#{reading.book.title}", book_path(reading.book) %></span>
 
-      <%= link_to image_tag(book.photo_url, class: "post-photo"), book_path(book) %>
+      <%= link_to image_tag(reading.book.photo_url, class: "post-photo"), book_path(reading.book) %>
 
     <% end %>
 <!-- if request came frome somewhere else -->

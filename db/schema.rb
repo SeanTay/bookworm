@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160705214708) do
+ActiveRecord::Schema.define(version: 20160706130554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20160705214708) do
     t.string   "title"
     t.string   "author"
     t.string   "photo_url"
-    t.boolean  "has_read"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -34,6 +33,16 @@ ActiveRecord::Schema.define(version: 20160705214708) do
   end
 
   add_index "comments", ["book_id"], name: "index_comments_on_book_id", using: :btree
+
+  create_table "reads", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "reads", ["book_id"], name: "index_reads_on_book_id", using: :btree
+  add_index "reads", ["user_id"], name: "index_reads_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -54,4 +63,6 @@ ActiveRecord::Schema.define(version: 20160705214708) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "comments", "books"
+  add_foreign_key "reads", "books"
+  add_foreign_key "reads", "users"
 end

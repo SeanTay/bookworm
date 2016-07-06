@@ -13,7 +13,6 @@ comment_data.each_pair do |book_name, comments|
     title:        info[:title],
     author:       info[:author],
     photo_url:    info[:photo_url],
-    has_read:     info[:has_read]
   })
 
   comments.each do |comment|

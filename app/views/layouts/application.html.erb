@@ -10,7 +10,9 @@
 <div class = "nav">
 <ul>
   <% if user_signed_in? %>
-    <li><%= link_to "Home", root_path %></li>
+    <li><%= link_to "Now Reading", root_path %></li>
+    <li><%= link_to "On the Shelf", books_path(:request_type => 'reads') %></li>
+      <li>
     <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
   <% else %>
     <li><%= link_to "Home", root_path %></li>

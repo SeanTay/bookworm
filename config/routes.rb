@@ -8,7 +8,13 @@ Rails.application.routes.draw do
 
   resources :books do
     resources :comments
+    resources :reads
   end
+
+  resources :books do
+    put :read, on: :member
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

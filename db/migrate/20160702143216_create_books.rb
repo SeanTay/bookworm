@@ -4,7 +4,6 @@ class CreateBooks < ActiveRecord::Migration
       t.string :title
       t.string :author
       t.string :photo_url
-      t.boolean :has_read
 
       t.timestamps null: false
     end

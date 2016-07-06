@@ -2,12 +2,16 @@
 <%= check(@book) %>
 </h2>
 
-<img class = "book-photo" src="<%= @book.photo_url%>">
 
-<div class="book-content">
-    <p><span>Title:</span> <%= @book.title %></p>
-    <p><span>Author:</span> <%= @book.author %>
-</div>
+
+    <img class = "book-photo" src="<%= @book.photo_url%>">
+
+    <div class="book-content">
+        <p><span>Title:</span> <%= @book.title %></p>
+        <p><span>Author:</span> <%= @book.author %>
+    </div>
+
+
 
 <h3>Comments</h3>
 

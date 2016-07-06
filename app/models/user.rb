@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :reads
 
-  def has_read?(book)
-    self.reads.include?(book)
-  end
+  # def has_read?(book)
+  #   self.reads.include?(book)
+  # end
 end

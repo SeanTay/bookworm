@@ -1,11 +1,24 @@
 <h2>books <a href="/books/new">(+)</a></h2>
 
-<ul>
-  <% @books.each do |book| %>
-    <li>
-      <a href="/books/<%= book.id %>">
-        <%= book.title %>
-      </a>
-    </li>
-  <% end %>
-</ul>
+<!-- if request is for read books -->
+<% if params[:request_type] == 'reads' %>
+
+    <% @reads.each do |book| %>
+
+      <span><%= link_to "#{book.title}", book_path(book) %></span>
+
+      <%= link_to image_tag(book.photo_url, class: "post-photo"), book_path(book) %>
+
+    <% end %>
+<!-- if request came frome somewhere else -->
+<% else %>
+    <ul>
+      <% @books.each do |book| %>
+        <li>
+          <a href="/books/<%= book.id %>">
+            <%= book.title %>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+<% end %>

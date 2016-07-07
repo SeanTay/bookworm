@@ -12,6 +12,7 @@ before_action :authenticate_user!
   def create
     @book = Book.find(params[:book_id])
     @comment = @book.comments.create!(comment_params)
+    @comment.user = current_user
     redirect_to book_path(@book)
   end
 
@@ -41,6 +42,6 @@ before_action :authenticate_user!
 
   private
   def comment_params
-    params.require(:comment).permit(:subject, :body)
+    params.require(:comment).permit(:subject, :body, :user_email)
   end
 end

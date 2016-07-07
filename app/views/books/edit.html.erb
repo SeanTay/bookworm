@@ -1,7 +1,9 @@
-<h2>Edit Book: <%= @book.title %></h2>
+<div class="title">Edit Book: <%= @book.title %></div>
 
 <%= render partial: "form" %>
 
+<div class="delete">
 <%= form_for @book, method: :delete do |f| %>
   <%= f.submit "Delete Book!" %>
+</div>
 <% end %>

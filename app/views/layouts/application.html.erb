@@ -12,7 +12,6 @@
   <% if user_signed_in? %>
     <li><%= link_to "All Books", root_path %></li>
     <li><%= link_to "Currently Reading", books_path(:request_type => 'reads') %></li>
-      <li>
     <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
   <% else %>
     <li><%= link_to "Home", root_path %></li>
@@ -20,12 +19,9 @@
   <% end %>
 </ul>
 </div>
-<div class="container">
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
 
   <%= yield %>
 
-</div>
+
 </body>
 </html>

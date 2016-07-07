@@ -1,7 +1,10 @@
-<h3>Edit Comment</h3>
+<div class="title">Edit Comment</div>
 
 <%= render partial: "form" %>
 
+
+<div class="delete">
 <%= form_for [@book, @comment], method: :delete do |f| %>
   <%= f.submit "Delete Comment!" %>
+</div>
 <% end %>

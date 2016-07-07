@@ -32,8 +32,6 @@ class BooksController < ApplicationController
 
   def destroy
     @book = Book.find(params[:id])
-    @book.destroy
-    redirect_to books_path
   end
 
   def read
@@ -42,11 +40,11 @@ class BooksController < ApplicationController
 
     if type == "unread" #If user selects read
       current_user.reads.create(book:@book)
-      redirect_to :back, notice: "You finished reading #{@book.title}"
+      redirect_to :back, notice: "You're currently reading #{@book.title}"
 
     elsif type == "read"#If user select unread
       current_user.reads.where(book:@book).destroy_all
-      redirect_to :back, notice: "You unread #{@book.title}"
+      redirect_to :back, notice: "You finished reading #{@book.title}"
 
     else
       redirect_to :back, notice: "Nothing happened"

@@ -1,6 +1,7 @@
 body {
   margin: 0 auto;
-  background-color: #DDDDDD
+  background-color: #f7f7f7;
+  font-family: 'Muli', sans-serif;
 }
 
 .nav {
@@ -18,7 +19,6 @@ body {
 }
 
 .nav a {
-  font-family: 'Muli', sans-serif;
   font-size: .9em;
   text-decoration: none;
   text-transform: uppercase;
@@ -75,4 +75,112 @@ align-items: center;
 	margin: 0 auto;
 	padding: 4px 0;
 	width: 100px;
+}
+
+/*index page*/
+
+a {
+  text-decoration: none;
+}
+.title {
+    font-size: 36px;
+    text-align: center;
+    color: #2f2f2f;
+    position: relative;
+    z-index: 2;
+    padding: 50px 0;
+    margin-bottom: 20px;
+    background-color: #f95252;
+}
+
+.book-contain {
+  width: 100%;
+  margin: 30px auto;
+  display: inline-block;
+}
+
+.book-photo {
+  margin: 0 20px;
+  height: 350px;
+  box-shadow: 10px 10px 5px gray;
+}
+
+/*show page*/
+
+.notice{
+  text-align: center;
+  color: magenta;
+}
+
+.show-left {
+  position: absolute;
+  right: 60%;
+}
+
+.show-book-photo {
+  margin: 0 100px;
+  box-shadow: 10px 10px 5px gray;
+  display: relative;
+}
+
+.show-right {
+  position: absolute;
+  left: 40%;
+  float: right;
+  padding-right: 60px;
+}
+
+/*on page form*/
+.custom-form {
+  font-size: .8em;
+  background: #DFDFDF;
+  padding: 50px;
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.custom-form input {
+  margin: 5px 0 20px 0;
+  padding: 9px;
+  border: solid 1px black;
+  width: 100%;
+}
+
+/*add book form*/
+
+.book-form {
+  font-size: .8em;
+  background: #DFDFDF;
+  padding: 50px;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.book-form input {
+  margin: 5px 0 20px 0;
+  padding: 9px;
+  border: solid 1px black;
+  width: 100%;
+}
+
+/*comment form*/
+.delete {
+  font-size: .8em;
+  background: #f7f7f7;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 0px;
+}
+
+.delete input {
+  background-color: #f95252;
+  padding: 9px;
+  width: 100%;
+}
+
+.commentbox {
+  float: left;
+  width: 475px;
 }

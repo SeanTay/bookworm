@@ -1,24 +1,25 @@
-<h2>books <a href="/books/new">(+)</a></h2>
+<div class="title">Books <a href="/books/new">(+)</a></div>
 
 <!-- if request is for read books -->
 <% if params[:request_type] == 'reads' %>
 
+  <div class = "book-contain">
     <% @reads.each do |reading| %>
 
-      <span><%= link_to "#{reading.book.title}", book_path(reading.book) %></span>
-
-      <%= link_to image_tag(reading.book.photo_url, class: "post-photo"), book_path(reading.book) %>
-
+      <%= link_to image_tag(reading.book.photo_url, class: "book-photo"), book_path(reading.book) %>
+  </div>
     <% end %>
 <!-- if request came frome somewhere else -->
 <% else %>
-    <ul>
+  <div class="book-contain">
       <% @books.each do |book| %>
-        <li>
+
+          <%= link_to image_tag(book.photo_url, class: "book-photo"), book_path(book) %>
+        <!-- <li>
           <a href="/books/<%= book.id %>">
             <%= book.title %>
           </a>
-        </li>
+        </li> -->
       <% end %>
-    </ul>
+  </div>
 <% end %>

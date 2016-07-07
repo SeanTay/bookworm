@@ -1,27 +1,40 @@
-<h2><%= @book.title %><a href ="/books/<%= @book.id%>/edit">(edit)</a>
+<div class="title"><%= @book.title %>
+<%= link_to image_tag("edit.png", class: "icons"), edit_book_path(@book) %>
+<!-- <a href ="/books/<%= @book.id%>/edit"> (edit)</a> -->
 <%= check(@book) %>
-</h2>
 
+</div>
 
+<div class="container">
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+</div>
 
-    <img class = "book-photo" src="<%= @book.photo_url%>">
+<div class = "show-left">
+<img class = "show-book-photo" src="<%= @book.photo_url%>">
+</div>
 
+<div class ="show-right">
     <div class="book-content">
         <p><span>Title:</span> <%= @book.title %></p>
-        <p><span>Author:</span> <%= @book.author %>
+        <p><span>Author:</span> <%= @book.author %></p>
     </div>
 
 
 
-<h3>Comments</h3>
+  <h3>Comments</h3>
 
-<% @comments.each do |comment| %>
-  <p> Subject: <%= comment.subject %> </p>
-  <p> Added: <%= comment.created_at.strftime("%b %d %y") %> </p>
-  <p> <%= comment.body %> </p>
-  <%= link_to "Edit Comment", edit_book_comment_path(@book, comment) %>
+  <% @comments.each do |comment| %>
+    <p> Subject: <%= comment.subject %> </p>
+    <p> Added: <%= comment.created_at.strftime("%b %d %y") %> <%= comment.user_email %> </p>
+    <p> <%= comment.body %> </p>
+    <%= link_to "Edit Comment", edit_book_comment_path(@book, comment) %>
 
-<% end %>
+  <% end %>
 
-<h3>Leave a comment:</h3>
-<%= render partial: "comments/form" %>
+  <h3>Leave a comment:</h3>
+  <div class="commentbox">
+  <%= render partial: "comments/form" %>
+</div>
+
+</div>
